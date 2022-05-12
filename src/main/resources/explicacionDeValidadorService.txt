@@ -1,0 +1,8 @@
+Esta clase la hice porque me parecía que la cuenta estaba teniendo muchas responsabilidades.
+Me pareció que la validación de la cuenta no era una responsabilidad que si o si tuviera que tener la cuenta,
+y le agregaba mucho codigo a la misma.
+Por eso decidi abstraer en un servicio para validar las cosas que se tenian que validar de la cuenta.
+Me pareció que estaba bueno porque la cuenta no valida sus cosas por constructor, solo lo hace en los metodos sacar y poner,
+por lo que si se lo delegamos a alguien mas, no le va a afectar en nada y nos brinda una mayor simplicidad en la cuenta.
+Por ultimo, el hecho de que sea un singleton, en este caso no nos afecta a la hora de testear en nada porque este lo unico que hace es validar
+las cosas de una cuenta, por lo que se usa de manera indirecta en la cuenta y se pueden hacer los tests de igual manera sin problemas.

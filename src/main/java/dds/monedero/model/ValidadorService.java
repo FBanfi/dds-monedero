@@ -7,6 +7,7 @@ import dds.monedero.exceptions.SaldoMenorException;
 
 import java.time.LocalDate;
 
+//IMPORTANTE: PUSE UNA EXPLICACION DE ESTO EN EL DIRECTORIO DE RESOURCES
 public class ValidadorService {
     private final static ValidadorService INSTANCE = new ValidadorService();
 

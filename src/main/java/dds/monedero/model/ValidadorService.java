@@ -20,7 +20,6 @@ public class ValidadorService {
     public void validarPoner(Cuenta cuenta, double cuanto) {
         this.validarMontoNegativo(cuanto);
         this.validarCantidadDepositos(cuenta);
-
     }
 
     public void validarSacar(Cuenta cuenta, double cuanto) {

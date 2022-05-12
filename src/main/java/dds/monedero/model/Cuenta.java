@@ -23,9 +23,9 @@ public class Cuenta {
   }
 
   public void poner(double cuanto) {
-      this.validarMontoNegativo(cuanto);
-      if (getMovimientos().stream().filter(movimiento -> movimiento.isDeposito()).count() >= 3) {
-      throw new MaximaCantidadDepositosException("Ya excedio los " + 3 + " depositos diarios");
+    this.validarMontoNegativo(cuanto);
+    if (getMovimientos().stream().filter(movimiento -> movimiento.isDeposito()).count() >= 3) {
+    throw new MaximaCantidadDepositosException("Ya excedio los " + 3 + " depositos diarios");
     }
 
     this.agregarMovimiento(LocalDate.now(), cuanto, true);
@@ -59,9 +59,13 @@ public class Cuenta {
 
   public double getMontoExtraidoA(LocalDate fecha) {
     return getMovimientos().stream()
-        .filter(movimiento -> !movimiento.isDeposito() && movimiento.getFecha().equals(fecha))
+        .filter(movimiento -> this.esDepositoDe(movimiento, fecha))
         .mapToDouble(Movimiento::getMonto)
         .sum();
+  }
+
+  private boolean esDepositoDe(Movimiento movimiento, LocalDate fecha) {
+    return !movimiento.isDeposito() && movimiento.getFecha().equals(fecha);
   }
 
   public List<Movimiento> getMovimientos() {

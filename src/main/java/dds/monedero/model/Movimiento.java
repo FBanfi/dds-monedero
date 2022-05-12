@@ -13,14 +13,6 @@ public class Movimiento {
     this.esDeposito = esDeposito;
   }
 
-  public double getMonto() {
-    return monto;
-  }
-
-  public LocalDate getFecha() {
-    return fecha;
-  }
-
   public boolean fueDepositado(LocalDate fecha) {
     return isDeposito() && esDeLaFecha(fecha);
   }
@@ -52,5 +44,13 @@ public class Movimiento {
     } else {
       return cuenta.getSaldo() - getMonto();
     }
+  }
+
+  public double getMonto() {
+    return monto;
+  }
+
+  public LocalDate getFecha() {
+    return fecha;
   }
 }
